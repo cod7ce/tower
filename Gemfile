@@ -14,12 +14,15 @@ gem 'figaro'
 
 gem 'sqlite3'
 
+gem 'pundit'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'ffaker'
+  gem 'timecop'
   gem 'spring'
   gem 'brakeman'
 end
