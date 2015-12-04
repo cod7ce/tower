@@ -1,7 +1,7 @@
 DatabaseCleaner.clean_with(:truncation)
 include FactoryGirl::Syntax::Methods
 
-Timecop.freeze(Time.current.yesterday) do
+Timecop.freeze(Time.current - 3.days) do
   # create users
   user_1 = create(:user)
   user_2 = create(:user)
@@ -34,7 +34,9 @@ Timecop.freeze(Time.current.yesterday) do
   p "2 projects were created in team_1."
   p "user_1, user_2 and user_3 joined project_1."
   p "user_1 and user_4 joined project_2."
+end
 
+Timecop.freeze(Time.current - 2.days) do
   # create todos
   30.times.each do
     todo = create(:todo)
@@ -45,6 +47,10 @@ Timecop.freeze(Time.current.yesterday) do
   p "30 todos were created."
 end
 
-Todo.limit(5).each do |todo|
-  create(:comment, target: todo, creator: todo.project.users.sample)
+Timecop.freeze(Time.current - 1.days) do
+  Todo.limit(5).each do |todo|
+    create(:comment, target: todo, creator: todo.project.users.sample)
+  end
+
+  p '5 comments were leaved for todos.'
 end

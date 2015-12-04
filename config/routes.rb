@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end
 
   resources :projects do
-    resources :todos, only: [:show]
+    resources :todos, only: [:show, :create]
   end
 
   resources :users, only: [:show]

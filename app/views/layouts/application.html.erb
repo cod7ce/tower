@@ -4,6 +4,7 @@
   <title>Tower</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "#{Figaro.env.faye_server}/client.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>

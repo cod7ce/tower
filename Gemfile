@@ -16,6 +16,9 @@ gem 'sqlite3'
 
 gem 'pundit'
 
+gem 'thin'
+gem 'faye'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'

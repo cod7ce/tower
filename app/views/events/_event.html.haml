@@ -1,0 +1,15 @@
+.event-day{"data-event-day" => event.created_at.strftime("%Y-%m-%d") }
+  .event-day-title
+    %p= event.created_at.strftime("%Y")
+    %p= event.created_at.strftime("%m-%d")
+  .event-day-content
+    .event-ancestor{"data-ancestor-id" => event.target.id, "data-ancestor-type" => event.target_type}
+      .event-ancestor-title= link_to(event.target.name, polymorphic_path(event.target))
+      .event{"data-event-id" => event.id, "data-ancestor-id" => event.target.id, "data-ancestor-name" => event.target.name, "data-ancestor-type" => event.target_type}
+        .item.time{"data-event-day" => event.created_at.strftime("%Y-%m-%d")}
+          = event.created_at.strftime("%H:%M")
+        .item.avatar= image_tag(event.firer.avatar)
+        .item.content
+          = link_to(event.firer.nickname, event.firer)
+          = event_content(event)
+          = render "events/#{event.entity_type.downcase}", event: event

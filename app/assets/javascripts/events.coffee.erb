@@ -23,5 +23,29 @@ $ ->
     $('.events').show() if eventCount - index == 1
 
   $('.controls').on 'change', '#fired_by', ->
-    console.log $(this).attr('path') + '?user_id=' + $(this).val()
     window.location = $(this).attr('path') + '?user_id=' + $(this).val()
+
+  $('.controls').on 'click', '#fire_event_btn', ->
+    $.ajax
+      url: '/projects/1/todos'
+      dataType: "json"
+      type: "POST"
+      success: (data) ->
+        console.log data
+      error: (e) ->
+        console.log e
+
+  client       = new Faye.Client('<%= Figaro.env.faye_server %>')
+  subscription = client.subscribe '/events/private', (data) ->
+    event = $(data)
+    currentEventDay = event.find('.time').data('event-day')
+    currentAncestorId = event.find('.event').data('ancestor-id')
+
+    firstEvent = $('.events .event-day:first')
+    if currentEventDay == firstEvent.find('.time').data('event-day')
+      if currentAncestorId == firstEvent.find('.event').data('ancestor-id')
+        event.find('.event').insertBefore(firstEvent.find('.event:first'))
+      else
+        event.find('.event-ancestor').insertBefore(firstEvent.find('.event-ancestor:first'))
+    else
+      event.insertBefore(firstEvent)

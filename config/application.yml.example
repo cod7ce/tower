@@ -1,8 +1,10 @@
+faye_server: 'http://localhost:3000/faye'
+
 development:
-  secret_key_base:
+  secret_key_base: "1fe47ad497bc0312130f533d5ad14e80fd0809fc6033a4c72a7102034105dc85b2ae7ba53c61214b87b48729bf45cefa05c57f62edcde28b96b4d829283d0d2c"
 
 test:
-  secret_key_base:
+  secret_key_base: "f793a03364a905ff179b306806d5836df4c12696df6d8e6f7d60c1299ce93b6ee8dabfb7d53b584ae55dd604e3e5c3987e436195968b9fc5e9dd03af8b0452be"
 
 production:
   secret_key_base:
