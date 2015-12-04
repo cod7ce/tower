@@ -4,10 +4,6 @@
 
 	2.2.0
 
-### Testing
-
-    rake
-
 ### Setup
 
 	cp config/application.yml.example config/application.yml
@@ -19,6 +15,10 @@
 
 	# if you wanna stop all servers, just run
 	./kill.h
+
+### Testing
+
+    rake
 
 ### Details
 After setup, we can visit all events we faked by this link -> [http://localhost:4000/team/1/events](http://localhost:4000/team/1/events)
