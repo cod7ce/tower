@@ -6,8 +6,8 @@ RSpec.describe EventsController, type: :controller do
     let!(:user_1) { create(:user, nickname: 'anney') }
     let!(:user_2) { create(:user, nickname: 'david') }
     let!(:team) { create(:team) }
-    let!(:project) { create(:project) }
-    let!(:todo) { create(:todo) }
+    let!(:project) { create(:project, team: team, creator: user_1) }
+    let!(:todo) { create(:todo, creator: user_1) }
 
     before do
       team.members << user_1

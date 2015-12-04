@@ -1,0 +1,22 @@
+zh:
+  events:
+    team:
+      created: "创建了团队"
+      updated: "更新了团队"
+    project:
+      created: "创建了项目"
+      updated: "更新了项目"
+    todo:
+      created: "创建了任务"
+      assigned: "给 %{assigned_to} 指派了任务"
+      reassigned: "把 %{assigned_from} 的任务指派给 %{assigned_to}"
+      paused: "暂停处理这条任务"
+      handled: "开始处理这条任务"
+      estimated: "将任务完成时间从 %{previous_date} 修改为 %{current_date}"
+      completed: "完成了任务"
+      emptyestimated: "没有截止日期"
+    comment:
+      replied:
+        todo: "回复了任务"
+  firers:
+    include_blank: "所有人"
